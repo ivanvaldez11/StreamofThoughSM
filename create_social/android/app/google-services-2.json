@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "211534510906",
+    "project_id": "social-by-creationdrivenn",
+    "storage_bucket": "social-by-creationdrivenn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211534510906:android:c4b369cd77374500bb2e03",
+        "android_client_info": {
+          "package_name": "com.example.create_social"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211534510906-cduvbqoq3qgrfne7gjl4vboeo6qous7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh2ZFZb8bD2avpOVN06YW6RLqRCMm-0I8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211534510906-cduvbqoq3qgrfne7gjl4vboeo6qous7i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
