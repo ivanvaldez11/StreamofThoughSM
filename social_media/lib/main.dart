@@ -4,14 +4,14 @@ import 'package:social_media/pages/authentication.dart';
 
 import 'widgets/loading.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(SocialApp());
+  await Firebase.initializeApp();
+  runApp(const SocialApp());
 }
 
 class SocialApp extends StatelessWidget {
-  SocialApp({Key? key}) : super(key: key);
-  final Future<FirebaseApp> _initFirebase = Firebase.initializeApp();
+  const SocialApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +20,7 @@ class SocialApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: FutureBuilder(
-          initialData: _initFirebase,
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.hasError) {
-              return const Center(
-                child: Text("Ooops and Error is here"),
-              );
-            } else if (snapshot.connectionState == ConnectionState.done) {
-              return const Loading();
-            }
-            return Authentication();
-          },
-        ),
-      ),
+      home: Authentication(),
     );
   }
 }
