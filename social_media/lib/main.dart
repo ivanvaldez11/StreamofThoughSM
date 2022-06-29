@@ -1,16 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media/pages/authentication.dart';
 
 import 'widgets/loading.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(SocialApp());
 }
 
 class SocialApp extends StatelessWidget {
   SocialApp({Key? key}) : super(key: key);
+  Future<FirebaseApp> _initFirebase = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,21 @@ class SocialApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-          body: Center(
-        child: Text("Good to Go"),
-      )),
+      home: Scaffold(
+        body: FutureBuilder(
+          initialData: _initFirebase,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasError) {
+              return const Center(
+                child: Text("Ooops and Error is here"),
+              );
+            } else if (snapshot.connectionState == ConnectionState.done) {
+              return const Loading();
+            }
+            return const Authentication();
+          },
+        ),
+      ),
     );
   }
 }
