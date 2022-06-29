@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "99534215381",
+    "project_id": "social-media-streamofthoughts",
+    "storage_bucket": "social-media-streamofthoughts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99534215381:android:531ab9948ab87deb536a5c",
+        "android_client_info": {
+          "package_name": "com.example.social_media"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99534215381-qsqqc6k1vp8fsj75ctkkdruundc8legv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzm6aYoFZgDct7IXiPCxpgnd0wKgwTMG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99534215381-qsqqc6k1vp8fsj75ctkkdruundc8legv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
