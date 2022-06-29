@@ -11,7 +11,7 @@ void main() {
 
 class SocialApp extends StatelessWidget {
   SocialApp({Key? key}) : super(key: key);
-  Future<FirebaseApp> _initFirebase = Firebase.initializeApp();
+  final Future<FirebaseApp> _initFirebase = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class SocialApp extends StatelessWidget {
             } else if (snapshot.connectionState == ConnectionState.done) {
               return const Loading();
             }
-            return const Authentication();
+            return Authentication();
           },
         ),
       ),
