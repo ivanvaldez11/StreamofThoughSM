@@ -1,14 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'widgets/loading.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(SocialApp());
 }
 
 class SocialApp extends StatelessWidget {
   SocialApp({Key? key}) : super(key: key);
-  Future<FirebaseApp> _initFirebase = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
@@ -17,32 +19,10 @@ class SocialApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: FutureBuilder(
-          initialData: _initFirebase,
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.hasError) {
-              return const Center(
-                child: Text("Ooops and Error is here"),
-              );
-            } else if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Loading();
-            }
-            return const Center(
-              child: Text("Good to Go."),
-            );
-          },
-        ),
-      ),
+      home: const Scaffold(
+          body: Center(
+        child: Text("Good to Go"),
+      )),
     );
-  }
-}
-
-class Loading extends StatelessWidget {
-  const Loading({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
   }
 }
